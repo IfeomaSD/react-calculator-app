@@ -20,6 +20,20 @@ export default function App() {
       setResult(eval(calc + value).toString());
     } 
   }
+
+const calculate = () => {
+  setCalc(eval(calc).toString());
+}
+
+const deleteLast =() => {
+  if (calc == '') {
+    return;
+  }
+  
+  const value = calc.slice(0, -1);
+  setCalc(value);
+}
+
   return (
     <div className= "App">
   <div className= "calculator">
@@ -30,7 +44,7 @@ export default function App() {
       <button onClick={() => updateCalc('*')}>*</button>
       <button onClick={() => updateCalc('/')}>/</button>
       <button onClick={() => updateCalc('-')}>-</button>
-      <button>DEL</button>
+      <button onClick={deleteLast}>DEL</button>
 
         </div>
         <div className= "digits">
@@ -45,7 +59,7 @@ export default function App() {
         <button onClick={() => updateCalc('1')}>1</button>
         <button onClick={() => updateCalc('0')}>0</button>
         <button onClick={() => updateCalc('.')}>.</button>
-          <button>=</button>
+          <button onClick={calculate}>=</button>
           </div>
     </div>
     </div>
